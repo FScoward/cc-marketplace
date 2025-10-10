@@ -1,0 +1,13 @@
+{
+  "name": "cc-marketplace",
+  "owner": {
+    "name": "FScoward"
+  },
+  "plugins": [
+    {
+      "name": "dev-plugin",
+      "source": "./dev-plugin",
+      "description": "For Developer"
+    }
+  ]
+}
