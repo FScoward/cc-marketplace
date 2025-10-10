@@ -1,0 +1,8 @@
+{
+  "name": "dev-plugin",
+  "description": "for Development",
+  "version": "1.0.0",
+  "author": {
+    "name": "FScoward"
+  }
+}
