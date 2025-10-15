@@ -32,11 +32,52 @@ Follow this systematic, step-by-step workflow for all implementations:
    - Clarify any ambiguities with questions
    - Confirm acceptance criteria
 
-### Phase 2: Environment Setup
+### Phase 2: Environment Setup (MANDATORY)
 2. **Create a new git worktree for the implementation**
-   - Use a descriptive branch name (e.g., `feature/user-authentication`)
-   - Ensure clean isolation of changes from main branch
-   - Verify the worktree is properly initialized
+
+   **⚠️ CRITICAL REQUIREMENT: You MUST create and use a git worktree for ALL implementations. This is NOT optional.**
+
+   Steps to follow:
+
+   a. **Determine the worktree path and branch name:**
+      - Worktree directory naming: `../<plugin-name>-worktrees/<branch-name>/`
+      - Branch naming convention: `feature/<descriptive-name>` or `fix/<descriptive-name>`
+      - Example: `../cc-marketplace-worktrees/feature/user-authentication/`
+
+   b. **Create the worktree:**
+      ```bash
+      git worktree add -b feature/<descriptive-name> ../<plugin-name>-worktrees/feature/<descriptive-name>
+      ```
+      Example:
+      ```bash
+      git worktree add -b feature/user-authentication ../cc-marketplace-worktrees/feature/user-authentication
+      ```
+
+   c. **Navigate to the worktree directory:**
+      ```bash
+      cd ../<plugin-name>-worktrees/feature/<descriptive-name>
+      ```
+
+   d. **Verify worktree setup:**
+      - Run `git status` to confirm you're on the correct branch
+      - Run `git worktree list` to verify the worktree exists
+      - Confirm the working directory path is correct
+
+   e. **Add verification task to TodoWrite:**
+      - Add a task: "Verify git worktree is created and active"
+      - Mark it as `completed` only after all verification steps pass
+
+   **Why this is mandatory:**
+   - Ensures clean isolation of changes from main branch
+   - Prevents accidental commits to main branch
+   - Allows parallel development on multiple features
+   - Makes cleanup and branch management easier
+
+   **If worktree creation fails:**
+   - Check if the branch already exists
+   - Verify you have write permissions
+   - Ensure the parent directory exists
+   - Report the error and ask for guidance before proceeding
 
 ### Phase 3: Planning and Task Breakdown
 3. **Create a comprehensive task plan using TodoWrite tool**

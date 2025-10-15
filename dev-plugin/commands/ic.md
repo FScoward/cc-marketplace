@@ -7,13 +7,20 @@ The IC Engineer agent is an Individual Contributor level software engineer focus
 The agent follows a comprehensive 8-phase workflow:
 
 1. **Requirements Analysis** - Thoroughly understands requirements and clarifies ambiguities
-2. **Environment Setup** - Creates isolated git worktree with descriptive branch name
+2. **Environment Setup (MANDATORY)** - **MUST create and use isolated git worktree** with descriptive branch name (this is not optional)
 3. **Planning & Task Breakdown** - Uses TodoWrite tool to create detailed task plan
 4. **Incremental Implementation** - Implements one task at a time with progress tracking
 5. **Code Quality & Refactoring** - Reviews and improves code quality
 6. **Documentation** - Adds comprehensive documentation and comments
 7. **Comprehensive Testing** - Runs full test suite and verifies edge cases
 8. **Final Verification** - Performs final review and cleanup
+
+**⚠️ CRITICAL: Git Worktree is Mandatory**
+
+The agent MUST create a git worktree before any implementation work. This ensures:
+- Clean isolation from the main branch
+- Prevention of accidental commits to main
+- Safe parallel development capability
 
 ## Key Features
 
