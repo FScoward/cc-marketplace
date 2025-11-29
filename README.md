@@ -6,7 +6,7 @@ Claude Codeプラグインのマーケットプレイスリポジトリなのだ
 
 ### dev-plugin
 
-開発タスクを支援する包括的なプラグインなのだ（バージョン: 1.2.0）。
+開発タスクを支援する包括的なプラグインなのだ（バージョン: 1.3.0）。
 
 ## コマンド
 
@@ -332,6 +332,98 @@ DDD & クリーンアーキテクチャの専門監査エージェント。コ�
 - タスクステータスをリアルタイムで更新（pending → in_progress → completed）
 - 常に1つのタスクのみin_progress状態を維持
 - ユーザーに定期的な進捗更新を提供
+
+---
+
+## スキル
+
+### ast-grep
+
+AST（抽象構文木）ベースの構造的コード検索・リファクタリングスキルなのだ。
+
+**自動起動トリガー:** 「ast-grep」「構造検索」「パターン検索」「コードパターンを探して」「一括置換」
+
+**機能:**
+- テキストベースのgrepとは異なり、コードの構造（AST）を理解して検索
+- `$VAR` のようなメタ変数で任意の式やパターンをキャプチャ可能
+- 検索結果を構造的に置換してリファクタリング
+
+**対応言語:**
+TypeScript, JavaScript, Kotlin, Python, Go, Rust
+
+**使用例:**
+```bash
+# console.log の使用箇所を検索
+ast-grep run --pattern 'console.log($MSG)' --lang typescript
+
+# オプショナルチェーンに変換
+ast-grep run --pattern '$A && $A()' --rewrite '$A?.()' --interactive --lang typescript
+
+# 空のcatchブロックを探す
+ast-grep run --pattern 'catch ($E) {}' --lang typescript
+```
+
+---
+
+### polish
+
+コード品質チェックを実行するスキルなのだ。コード整形（format）、リント（lint）、単体テスト（test）を自動実行するのだ。
+
+**自動起動トリガー:** 「コードを整形して」「リントを実行して」「テストを実行して」「コード品質チェック」「polish」
+
+**実行内容:**
+1. **コード整形（Format）** - コードスタイルを統一
+2. **リント（Lint）** - 静的解析でコード品質をチェック
+3. **単体テスト（Test）** - テストを実行して動作を検証
+
+**対応プロジェクト:**
+| プロジェクト | 検出ファイル |
+|-------------|-------------|
+| Kotlin/Gradle | `build.gradle.kts`, `build.gradle` |
+| Node.js/npm | `package.json` |
+| Python | `pyproject.toml`, `setup.py`, `requirements.txt` |
+| Rust | `Cargo.toml` |
+| Go | `go.mod` |
+
+**部分実行:**
+- 「整形して」「formatして」 → コード整形のみ
+- 「リントして」「lintして」 → リントのみ
+- 「テストして」「testして」 → 単体テストのみ
+- 「全部チェックして」「polishして」 → 全て実行
+
+---
+
+### json-canvas
+
+JSON Canvas（.canvas）ファイルの生成・解析・変換を行うスキルなのだ。Obsidianなどで使用される無限キャンバス形式を扱うのだ。
+
+**自動起動トリガー:** 「キャンバス作成」「マインドマップ生成」「Obsidianキャンバス」「無限キャンバス」「ノード図」「フローチャート作成」
+
+**機能:**
+
+**1. キャンバス生成**
+- テキスト情報からキャンバスを新規作成
+- マインドマップ・フローチャートの自動レイアウト
+- Markdownファイルからノード群を生成
+
+**2. キャンバス解析**
+- 既存の`.canvas`ファイルを読み取り、内容を要約
+- ノード間の関係性を分析
+- 構造の可視化・説明
+
+**3. 形式変換**
+- Markdown → Canvas: 見出し構造をノード化
+- Mermaid → Canvas: フローチャート/グラフをキャンバスに変換
+- Canvas → Markdown: キャンバス内容をドキュメント化
+- Canvas → Mermaid: ノード関係をMermaid記法で出力
+
+**使用例:**
+```
+「プロジェクト管理についてキャンバスを作成して」
+「このMarkdownをキャンバス化して」
+「MermaidをJSON Canvasに変換して」
+「canvasファイルをMarkdownに変換して」
+```
 
 ---
 
